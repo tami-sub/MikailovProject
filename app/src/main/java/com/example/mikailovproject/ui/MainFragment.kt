@@ -1,16 +1,17 @@
 package com.example.mikailovproject.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.viewModels
-
+import androidx.fragment.app.Fragment
 import com.example.mikailovproject.databinding.FragmentMainBinding
+import com.example.mikailovproject.di.RandomFactsApp
 import com.example.mikailovproject.presentation.MainState
 import com.example.mikailovproject.presentation.MainViewModel
+import javax.inject.Inject
+
 
 class MainFragment : Fragment() {
 
@@ -18,8 +19,17 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        (activity?.application as RandomFactsApp)
+            .appComponent
+            .inject(this)
+    }
+
+    @Inject
+    lateinit var viewModel: MainViewModel
     private lateinit var binding: FragmentMainBinding
-    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,9 +46,11 @@ class MainFragment : Fragment() {
             viewModel.loadStrings()
         }
 
+
         viewModel.state.observe(viewLifecycleOwner) { newState ->
             renderState(newState)
         }
+
     }
 
     private fun renderState(state: MainState) = with(binding) {

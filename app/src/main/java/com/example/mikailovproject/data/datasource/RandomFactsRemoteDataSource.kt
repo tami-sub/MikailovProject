@@ -1,10 +1,9 @@
 package com.example.mikailovproject.data.datasource
 
-import com.example.mikailovproject.data.datasource.RandomFactsDataSource
+import javax.inject.Inject
 
-class RandomFactsRemoteDataSource : RandomFactsDataSource {
+class RandomFactsRemoteDataSource @Inject constructor() : RandomFactsDataSource {
 
     private val mockedAnswer = "String from remote data source"
-
     override fun get(): String = mockedAnswer
 }

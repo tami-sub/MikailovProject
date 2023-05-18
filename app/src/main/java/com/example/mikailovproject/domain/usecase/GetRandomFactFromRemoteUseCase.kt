@@ -1,13 +1,9 @@
 package com.example.mikailovproject.domain.usecase
 
-import com.example.mikailovproject.data.repository.RandomFactsRepositoryImpl
 import com.example.mikailovproject.domain.repository.RandomFactsRepository
+import javax.inject.Inject
 
-class GetRandomFactFromRemoteUseCase {
-
-    //TODO: DI
-    //TODO: сделать так, чтобы repository не пересоздавался для каждого UseCase
-    private val repository: RandomFactsRepository = RandomFactsRepositoryImpl()
+class GetRandomFactFromRemoteUseCase @Inject constructor(private val repository: RandomFactsRepository) {
 
     operator fun invoke(): String {
         val fromRemote = repository.getFromRemote()

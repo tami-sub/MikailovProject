@@ -1,8 +1,8 @@
 package com.example.mikailovproject.data.datasource
 
-import com.example.mikailovproject.data.datasource.RandomFactsDataSource
+import javax.inject.Inject
 
-class RandomFactsLocalDataSource : RandomFactsDataSource {
+class RandomFactsLocalDataSource @Inject constructor(): RandomFactsDataSource {
 
     private val mockedCache = "String from local data source"
 

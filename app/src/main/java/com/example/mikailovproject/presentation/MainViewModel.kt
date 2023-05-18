@@ -6,11 +6,12 @@ import androidx.lifecycle.ViewModel
 import com.example.mikailovproject.domain.usecase.GetRandomFactFromLocalUseCase
 import com.example.mikailovproject.domain.usecase.GetRandomFactFromRemoteUseCase
 import com.example.mikailovproject.presentation.MainState
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
-    //TODO: DI
-    private val getRandomFactFromLocalUseCase = GetRandomFactFromLocalUseCase()
-    private val getRandomFactFromRemoteUseCase = GetRandomFactFromRemoteUseCase()
+class MainViewModel @Inject constructor(
+    private val getRandomFactFromLocalUseCase: GetRandomFactFromLocalUseCase,
+    private val getRandomFactFromRemoteUseCase: GetRandomFactFromRemoteUseCase,
+    ): ViewModel(){
 
     private val _state: MutableLiveData<MainState> = MutableLiveData<MainState>()
     val state: LiveData<MainState> = _state
@@ -18,8 +19,8 @@ class MainViewModel : ViewModel() {
     fun loadStrings() {
         _state.value = MainState.Loading
 
-        val fromLocal = getRandomFactFromLocalUseCase()
-        val fromRemote = getRandomFactFromRemoteUseCase()
+        val fromLocal = getRandomFactFromLocalUseCase.invoke()
+        val fromRemote = getRandomFactFromRemoteUseCase.invoke()
 
         _state.value = MainState.Success(remoteString = fromRemote, localString = fromLocal)
     }
