@@ -1,9 +1,20 @@
 package com.example.mikailovproject.di
 
 import android.app.Application
-import com.example.mikailovproject.di.DaggerApplicationComponent
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import javax.inject.Inject
 
-class RandomFactsApp : Application() {
+class RandomFactsApp : Application()
+    , HasAndroidInjector
+{
 
-    val appComponent: ApplicationComponent = DaggerApplicationComponent.create()
+    @Inject
+    lateinit var injector: DispatchingAndroidInjector<Any>
+
+    val appComponent = DaggerApplicationComponent.factory().create(this).inject(this)
+
+    override fun androidInjector(): AndroidInjector<Any> = injector
+
 }

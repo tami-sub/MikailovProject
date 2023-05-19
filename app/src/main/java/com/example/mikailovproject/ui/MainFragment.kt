@@ -1,5 +1,6 @@
 package com.example.mikailovproject.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import com.example.mikailovproject.databinding.FragmentMainBinding
 import com.example.mikailovproject.di.RandomFactsApp
 import com.example.mikailovproject.presentation.MainState
 import com.example.mikailovproject.presentation.MainViewModel
+import dagger.android.AndroidInjection
+import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 
@@ -22,15 +25,19 @@ class MainFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity?.application as RandomFactsApp)
-            .appComponent
-            .inject(this)
+//        (activity?.application as RandomFactsApp).injector.inject(this)
+//            .appComponent
+//            .inject(this)
+//
     }
 
     @Inject
     lateinit var viewModel: MainViewModel
     private lateinit var binding: FragmentMainBinding
-
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        AndroidSupportInjection.inject(this)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
