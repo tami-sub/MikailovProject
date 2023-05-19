@@ -12,16 +12,11 @@ import dagger.android.support.AndroidSupportInjectionModule
 
 @AppScope
 @Component(
-    modules = [DataModule::class, RepositoryModule::class,
-        ActivityModule::class, FragmentModule::class,
-        AndroidSupportInjectionModule::class
-    ]
+    modules = [DataModule::class,
+        ActivityModule::class, FragmentModule::class, AndroidSupportInjectionModule::class]
 )
 
-
-interface ApplicationComponent
-    : AndroidInjector<RandomFactsApp>
-{
+interface ApplicationComponent : AndroidInjector<RandomFactsApp> {
     @Component.Factory
     interface Factory : AndroidInjector.Factory<RandomFactsApp>
 }

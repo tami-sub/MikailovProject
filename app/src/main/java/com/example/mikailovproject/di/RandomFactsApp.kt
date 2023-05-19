@@ -6,9 +6,7 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import javax.inject.Inject
 
-class RandomFactsApp : Application()
-    , HasAndroidInjector
-{
+class RandomFactsApp : Application(), HasAndroidInjector {
 
     @Inject
     lateinit var injector: DispatchingAndroidInjector<Any>

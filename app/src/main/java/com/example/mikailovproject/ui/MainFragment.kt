@@ -22,18 +22,10 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-//        (activity?.application as RandomFactsApp).injector.inject(this)
-//            .appComponent
-//            .inject(this)
-//
-    }
-
     @Inject
     lateinit var viewModel: MainViewModel
     private lateinit var binding: FragmentMainBinding
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)

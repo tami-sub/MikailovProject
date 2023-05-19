@@ -15,16 +15,13 @@ import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 
-class MainActivity : AppCompatActivity(), HasAndroidInjector {
-    @Inject
-    lateinit var injector: DispatchingAndroidInjector<Any>
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
-
-    override fun androidInjector(): AndroidInjector<Any> = injector
 }
