@@ -1,0 +1,5 @@
+<resources>
+    <string name="remote">Remote</string>
+    <string name="local">Local</string>
+    <string name="load">Load texts</string>
+</resources>

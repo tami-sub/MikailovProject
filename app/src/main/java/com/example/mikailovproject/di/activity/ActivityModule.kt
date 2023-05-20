@@ -1,7 +1,6 @@
 package com.example.mikailovproject.di.activity
 
-import com.example.mikailovproject.data.di.DataModule
-import com.example.mikailovproject.ui.MainActivity
+import com.example.mikailovproject.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
