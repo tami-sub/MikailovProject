@@ -1,6 +1,5 @@
 package com.example.mikailovproject.di
 
-import com.example.mikailovproject.shared.randomfact.core.data.di.DataModule
 import com.example.mikailovproject.di.activity.ActivityModule
 import com.example.mikailovproject.di.fragment.FragmentModule
 import dagger.Component

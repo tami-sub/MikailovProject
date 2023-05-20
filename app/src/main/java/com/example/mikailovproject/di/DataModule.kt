@@ -1,4 +1,4 @@
-package com.example.mikailovproject.shared.randomfact.core.data.di
+package com.example.mikailovproject.di
 
 import com.example.mikailovproject.shared.randomfact.core.data.datasource.RandomFactsDataSource
 import com.example.mikailovproject.shared.randomfact.core.data.datasource.RandomFactsLocalDataSource
