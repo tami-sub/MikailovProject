@@ -9,10 +9,10 @@ import dagger.android.ContributesAndroidInjector
 @Module
 interface FragmentModule {
     @FragmentScope
-    @ContributesAndroidInjector(modules = [RepositoryModule::class])
+    @ContributesAndroidInjector()
     fun injectMainFragment(): MainFragment
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = [RepositoryModule::class])
+    @ContributesAndroidInjector()
     fun injectSecondFragment(): SecondFragment
 }

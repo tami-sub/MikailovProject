@@ -53,11 +53,23 @@ class MainFragment : Fragment() {
             viewModel.loadStrings()
         }
 
+        binding.sendNewFileButton.setOnClickListener {
+            viewModel.createFile()
+        }
 
         viewModel.state.observe(viewLifecycleOwner) { newState ->
             renderState(newState)
         }
 
+        viewModel.postedFile.observe(viewLifecycleOwner) { it ->
+            when (it) {
+                null -> {}
+                else -> with(binding) {
+                    sentFileInfo.text =
+                        getString(R.string.sent_file_info_text, it.FileId, it.FileExt, it.FileName)
+                }
+            }
+        }
     }
 
     private fun renderState(state: MainState) = with(binding) {
