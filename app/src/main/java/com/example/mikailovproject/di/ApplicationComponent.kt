@@ -6,15 +6,17 @@ import com.example.mikailovproject.network.retrofit.NetworkModule
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
+import javax.inject.Singleton
 
-@AppScope
+@Singleton
 @Component(
     modules = [DataModule::class, NetworkModule::class, RepositoryModule::class,
-        AppModule::class, ActivityModule::class, FragmentModule::class,
+        AppModule::class, ActivityModule::class,
+        FragmentModule::class,
         AndroidSupportInjectionModule::class]
 )
 
-interface ApplicationComponent : AndroidInjector<RandomFactsApp> {
+interface ApplicationComponent : AndroidInjector<FinalProjectApp> {
     @Component.Factory
     interface Factory {
         fun create(appModule: AppModule): ApplicationComponent

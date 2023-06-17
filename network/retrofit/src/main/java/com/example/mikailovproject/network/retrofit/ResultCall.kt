@@ -9,7 +9,7 @@ import retrofit2.Response
 import java.io.IOException
 import java.lang.RuntimeException
 
-class ResultCall<T>(val delegate: Call<T>) : Call<Result<T>> {
+class ResultCall<T>(private val delegate: Call<T>) : Call<Result<T>> {
 
     override fun enqueue(callback: Callback<Result<T>>) {
         delegate.enqueue(object : Callback<T> {
@@ -24,7 +24,7 @@ class ResultCall<T>(val delegate: Call<T>) : Call<Result<T>> {
                     callback.onResponse(
                         this@ResultCall, Response.success(
                             Result.failure(
-                                HttpException(response)
+                                HttpException(response)         // If we're able to network-working
                             )
                         )
                     )
@@ -32,7 +32,7 @@ class ResultCall<T>(val delegate: Call<T>) : Call<Result<T>> {
             }
 
             override fun onFailure(call: Call<T>, t: Throwable) {
-                val errorMessage = when (t) {
+                val errorMessage = when (t) {               // Here I'll filter every exception type
                     is IOException -> t.toString()
                     is HttpException -> t.toString()
                     else -> t.localizedMessage

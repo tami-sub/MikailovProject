@@ -1,9 +1,11 @@
 package com.example.mikailovproject.di
 
-import com.example.mikailovproject.shared.randomfact.core.domain.repository.RemoteRepository
-import com.example.mikailovproject.shared.randomfact.core.data.repository.RemoteRepositoryImpl
-import com.example.mikailovproject.shared.randomfact.core.data.repository.RandomFactsRepositoryImpl
-import com.example.mikailovproject.shared.randomfact.core.domain.repository.RandomFactsRepository
+import com.example.mikailovproject.shared.finalproject.core.data.repository.AuthRepositoryImpl
+import com.example.mikailovproject.shared.finalproject.core.data.repository.LoanRepositoryImpl
+import com.example.mikailovproject.shared.finalproject.core.data.repository.RandomFactsRepositoryImpl
+import com.example.mikailovproject.shared.finalproject.core.domain.repository.AuthRepository
+import com.example.mikailovproject.shared.finalproject.core.domain.repository.LoanRepository
+import com.example.mikailovproject.shared.finalproject.core.domain.repository.RandomFactsRepository
 import dagger.Binds
 import dagger.Module
 
@@ -13,5 +15,8 @@ interface RepositoryModule {
     fun bindRandomFactsRepository(impl: RandomFactsRepositoryImpl): RandomFactsRepository
 
     @Binds
-    fun bindRemoteRepository(impl: RemoteRepositoryImpl): RemoteRepository
+    fun bindAuthRepository(impl: AuthRepositoryImpl): AuthRepository
+
+    @Binds
+    fun bindLoanRepository(impl: LoanRepositoryImpl): LoanRepository
 }

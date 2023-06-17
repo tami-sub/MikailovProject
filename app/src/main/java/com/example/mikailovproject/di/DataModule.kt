@@ -1,8 +1,8 @@
 package com.example.mikailovproject.di
 
-import com.example.mikailovproject.shared.randomfact.core.data.datasource.RandomFactsDataSource
-import com.example.mikailovproject.shared.randomfact.core.data.datasource.RandomFactsLocalDataSource
-import com.example.mikailovproject.shared.randomfact.core.data.datasource.RandomFactsRemoteDataSource
+import com.example.mikailovproject.shared.finalproject.core.data.datasource.RandomFactsDataSource
+import com.example.mikailovproject.shared.finalproject.core.data.datasource.RandomFactsLocalDataSource
+import com.example.mikailovproject.shared.finalproject.core.data.datasource.RandomFactsRemoteDataSource
 import dagger.Binds
 import dagger.Module
 import javax.inject.Named

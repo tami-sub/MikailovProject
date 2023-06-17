@@ -15,7 +15,7 @@ dependencyResolutionManagement {
 rootProject.name = "MikailovProject"
 include ':app'
 include ':component:navigation'
-include ':shared:randomfact:core'
-include ':feature:randomfact:mainFragment'
-include ':feature:randomfact:secondFragment'
+include ':shared:finalproject:core'
+include ':feature:finalproject:mainFragment'
+include ':feature:finalproject:secondFragment'
 include ':network:retrofit'

@@ -6,14 +6,14 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.mikailovproject.feature.randomfact.mainFragment.ui.MainFragment"
-        android:label="MainFragment" >
+        android:name="com.example.mikailovproject.feature.finalproject.mainFragment.ui.MainFragment"
+        android:label="MainFragment">
         <action
             android:id="@+id/action_mainFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.example.mikailovproject.feature.randomfact.secondFragment.ui.SecondFragment"
+        android:name="com.example.mikailovproject.feature.finalproject.secondFragment.ui.SecondFragment"
         android:label="SecondFragment" />
 </navigation>
