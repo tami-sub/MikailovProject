@@ -28,6 +28,7 @@ class SecondFragment : Fragment() {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -39,6 +40,9 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        arguments?.let {
+            Toast.makeText(requireActivity(), it.getString("id"), Toast.LENGTH_SHORT).show()
+        }
         binding.loadButton.setOnClickListener {
             viewModel.loadStrings()
         }

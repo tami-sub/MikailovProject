@@ -1,8 +1,0 @@
-<resources>
-    <string name="remote">Remote</string>
-    <string name="local">Local</string>
-    <string name="load">Load texts</string>
-    <string name="to_second_fragment">To Second Fragment</string>
-    <string name="send_file">Send New File</string>
-    <string name="sent_file_info_text">File id = %1$s\n\nFile ext = %2$s\n\nFile name = %3$s</string>
-</resources>

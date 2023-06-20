@@ -16,6 +16,7 @@ rootProject.name = "MikailovProject"
 include ':app'
 include ':component:navigation'
 include ':shared:finalproject:core'
-include ':feature:finalproject:mainFragment'
+include ':feature:finalproject:registrationFragment'
+include ':feature:finalproject:loginFragment'
 include ':feature:finalproject:secondFragment'
 include ':network:retrofit'

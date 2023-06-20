@@ -2,18 +2,35 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.mikailovproject.feature.finalproject.mainFragment.ui.MainFragment"
-        android:label="MainFragment">
+        android:id="@+id/registrationFragment"
+        android:name="com.example.mikailovproject.feature.finalproject.registrationFragment.ui.RegistrationFragment"
+        android:label="RegistrationFragment">
         <action
-            android:id="@+id/action_mainFragment_to_secondFragment"
-            app:destination="@id/secondFragment" />
+            android:id="@+id/action_registrationFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.mikailovproject.feature.finalproject.secondFragment.ui.SecondFragment"
-        android:label="SecondFragment" />
+        android:label="SecondFragment">
+
+        <deepLink app:uri="android-app://secondFragment?id={id}" />
+        <argument
+            android:name="id"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.mikailovproject.feature.finalproject.loginFragment.ui.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
 </navigation>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bad_request">Bad Request</string>
+    <string name="not_found">Not Found</string>
+    <string name="unauthorized">You\'re are unauthorized</string>
+    <string name="forbidden">Forbidden - You have not access</string>
+    <string name="server_error">Internal Server Error</string>
+    <string name="unknown">Something went wrong</string>
+    <string name="no_connectivity">Check Internet Connection</string>
+    <string name="time_out">Request timed out</string>
+</resources>

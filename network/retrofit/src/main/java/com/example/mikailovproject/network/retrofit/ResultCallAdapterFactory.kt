@@ -1,12 +1,13 @@
 package com.example.mikailovproject.network.retrofit
 
+import android.content.Context
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
-class ResultCallAdapterFactory : CallAdapter.Factory() {
+class ResultCallAdapterFactory(private val context: Context) : CallAdapter.Factory() {
 
     override fun get(
         returnType: Type,
@@ -23,7 +24,7 @@ class ResultCallAdapterFactory : CallAdapter.Factory() {
                 override fun responseType(): Type = getParameterUpperBound(0, upperBound)
 
                 override fun adapt(call: Call<Any>): Call<Result<*>> =
-                    ResultCall(call) as Call<Result<*>>
+                    ResultCall(call, context) as Call<Result<*>>
             }
         } else {
             null

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextInputEditText" parent="DefaultStyle">
+        <item name="android:background">@color/white</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextInputLayout">
+        <item name="boxStrokeColor">@color/textColorGray</item>
+    </style>
+
+    <style name="TextInputLayoutError">
+        <item name="android:lineSpacingExtra">0.4sp</item>
+    </style>
+
+    <style name="DefaultStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">18sp</item>
+        <item name="fontStyle">normal</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="PrimaryButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTintMode">@color/yellow_500</item>
+        <item name="rippleColor">@color/yellow_500</item>
+        <item name="cornerRadius">0dp</item>
+    </style>
+</resources>

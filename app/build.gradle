@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -39,7 +38,8 @@ android {
 
 dependencies {
     implementation(project(":shared:finalproject:core"))
-    implementation(project(":feature:finalproject:mainFragment"))
+    implementation(project(":feature:finalproject:registrationFragment"))
+    implementation(project(":feature:finalproject:loginFragment"))
     implementation(project(":feature:finalproject:secondFragment"))
     implementation(project(":component:navigation"))
     implementation(project(":network:retrofit"))
