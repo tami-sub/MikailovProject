@@ -68,15 +68,15 @@ class LoginFragment :
 
             is LoginState.Success -> {
                 progressBar.visibility = View.GONE
-                val id = "88005553535"
-                val request = NavDeepLinkRequest.Builder
-                    .fromUri("android-app://secondFragment?id=$id".toUri())
-                    .build()
-                findNavController().navigate(request)
-//                navigate(
-//                    R.id.action_loginFragment_to_secondFragment,
-//                    com.example.mikailovproject.component.navigation.R.id.globalHost,
-//                )
+//                val id = "88005553535"
+//                val request = NavDeepLinkRequest.Builder
+//                    .fromUri("android-app://secondFragment?id=$id".toUri())
+//                    .build()
+//                findNavController().navigate(request)
+                navigate(
+                    R.id.action_loginFragment_to_instructionFragment,
+                    com.example.mikailovproject.component.navigation.R.id.globalHost,
+                )
                 viewModel.clear()
             }
 
