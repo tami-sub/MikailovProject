@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mikailovproject.shared.finalproject.core.domain.usecase.PostLoginAuthUseCase
+import com.example.mikailovproject.shared.finalproject.core.sharedpreferences.AuthTokenManager
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,7 +15,8 @@ import java.util.regex.Pattern
 import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(
-    private val postLoginAuthUseCase: PostLoginAuthUseCase
+    private val postLoginAuthUseCase: PostLoginAuthUseCase,
+    private val authTokenManager: AuthTokenManager
 ) : ViewModel() {
 
     private val _state: MutableLiveData<LoginState> = MutableLiveData<LoginState>()
@@ -41,7 +43,7 @@ class LoginViewModel @Inject constructor(
             withContext(Dispatchers.IO) {
                 postLoginAuthUseCase.invoke(name, password).onSuccess {
                     withContext(Dispatchers.Main) {
-//                        it
+                        authTokenManager.saveAuthToken(it)
                         _state.value = LoginState.Success
                     }
                 }.onFailure { throwable ->

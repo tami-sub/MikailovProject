@@ -1,7 +1,7 @@
 package com.example.mikailovproject.network.retrofit
 
 import android.app.Application
-import com.example.mikailovproject.network.retrofit.Utils.BASE_URL
+import com.example.mikailovproject.shared.finalproject.core.utils.Utils.BASE_URL
 import com.example.mikailovproject.shared.finalproject.core.data.remote.AuthApi
 import com.example.mikailovproject.shared.finalproject.core.data.remote.LoanApi
 import dagger.Module
