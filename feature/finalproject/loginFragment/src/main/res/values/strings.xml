@@ -2,14 +2,12 @@
     <string name="remote">Remote</string>
     <string name="local">Local</string>
     <string name="load">Load texts</string>
-    <string name="to_second_fragment">To Second Fragment</string>
-    <string name="send_file">Send New File</string>
-    <string name="sent_file_info_text">File id = %1$s\n\nFile ext = %2$s\n\nFile name = %3$s</string>
-    <string name="login_error_text">Max length is 20 and first letter is uppercase, others can be a-z,а-я-\'ё</string>
+    <string name="login_error_text">Max length is 20 and first letter is uppercase, others can be a-z,а-я-\' and no whitespaces</string>
     <string name="password_error_text">Max length is 25 and at least:\n1 Uppercase char\n1 Lowercase char\n1 Digit\n1 Special character: @#$%^+-_=!?\nNo whitespace</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="sign_up">Sign Up</string>
     <string name="cft_loans">CFT Loans</string>
     <string name="sign_in">Sign In</string>
+    <string name="wrong_authentication">Wrong Login or Password</string>
 </resources>

@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.example.mikailovproject.shared.finalproject.core.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 
 abstract class BaseFragment<VB : ViewBinding>(
@@ -22,6 +25,20 @@ abstract class BaseFragment<VB : ViewBinding>(
         injectDependencies()
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
+            val navController = findNavController()
+            override fun handleOnBackPressed() {
+                navController.popBackStack()
+                errorSnackbar?.dismiss()
+                if (navController.backQueue.size == 0) {
+                    requireActivity().finish()
+                }
+            }
+        })
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -34,16 +51,28 @@ abstract class BaseFragment<VB : ViewBinding>(
         _binding = null
     }
 
-    protected open fun showErrorSnackbar(message: String, dismiss: Boolean, invoke: () -> Unit) {
-        if (!dismiss) {
-            errorSnackbar = Snackbar.make(requireView(), message, Snackbar.LENGTH_INDEFINITE)
-            errorSnackbar?.setAction(getString(R.string.retry)) {
+    protected open fun showErrorSnackbar(message: String, invoke: () -> Unit) {
+        errorSnackbar = Snackbar.make(requireView(), message, Snackbar.LENGTH_INDEFINITE)
+        errorSnackbar?.setAction(getString(R.string.retry)) {
+            try {
                 invoke()
+            } catch (e: Exception) {
+                dismissErrorSnackBar()
             }
-            errorSnackbar?.show()
-        } else {
-            errorSnackbar?.dismiss()
         }
+        errorSnackbar?.show()
+    }
+
+    protected fun dismissErrorSnackBar() = errorSnackbar?.dismiss()
+
+    protected fun disappearBottomNavigation() {
+        requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation).visibility =
+            View.GONE
+    }
+
+    protected fun showBottomNavigation() {
+        requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation).visibility =
+            View.VISIBLE
     }
 
     protected abstract fun injectDependencies()

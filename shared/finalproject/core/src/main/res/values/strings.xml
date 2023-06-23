@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="retry">Retry</string>
+    <string name="percent_hint">Percent</string>
+    <string name="period_hint">Period</string>
+    <string name="name_hint">Name</string>
+    <string name="lastname_hint">Lastname</string>
+    <string name="amount_hint">Amount</string>
+    <string name="number_hint">Number</string>
+    <string name="status_hint">Status</string>
+    <string name="date_hint">Date</string>
 </resources>

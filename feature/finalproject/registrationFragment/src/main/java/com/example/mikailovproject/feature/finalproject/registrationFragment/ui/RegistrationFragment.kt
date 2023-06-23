@@ -33,7 +33,7 @@ class RegistrationFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        disappearBottomNavigation()
         with(binding) {
             login.doAfterTextChanged {
                 validateFields()
@@ -55,7 +55,7 @@ class RegistrationFragment :
         when (state) {
             is RegistrationState.Loading -> {
                 progressBar.visibility = View.VISIBLE
-                this@RegistrationFragment.showErrorSnackbar("", true) { }
+                dismissErrorSnackBar()
             }
 
             is RegistrationState.Success -> {
@@ -70,7 +70,7 @@ class RegistrationFragment :
             is RegistrationState.Error -> {
                 progressBar.visibility = View.GONE
                 state.exception.message?.let {
-                    this@RegistrationFragment.showErrorSnackbar(it, false) { signUp() }
+                    this@RegistrationFragment.showErrorSnackbar(it) { signUp() }
                 }
             }
 

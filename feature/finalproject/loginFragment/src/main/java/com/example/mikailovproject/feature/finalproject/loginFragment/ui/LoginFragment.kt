@@ -2,10 +2,8 @@ package com.example.mikailovproject.feature.finalproject.loginFragment.ui
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.net.toUri
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import com.example.mikailovproject.component.navigation.screen.navigate
 import com.example.mikailovproject.feature.finalproject.loginFragment.R
@@ -17,8 +15,7 @@ import com.example.mikailovproject.shared.finalproject.core.ui.BaseFragment
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class LoginFragment :
-    BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
+class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -35,7 +32,7 @@ class LoginFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        disappearBottomNavigation()
         with(binding) {
             login.doAfterTextChanged {
                 validateFields()
@@ -47,6 +44,7 @@ class LoginFragment :
                 signUp()
             }
             registerButton.setOnClickListener {
+                dismissErrorSnackBar()
                 navigate(
                     R.id.action_loginFragment_to_registrationFragment,
                     com.example.mikailovproject.component.navigation.R.id.globalHost,
@@ -63,7 +61,7 @@ class LoginFragment :
         when (state) {
             is LoginState.Loading -> {
                 progressBar.visibility = View.VISIBLE
-                this@LoginFragment.showErrorSnackbar("", true) { }
+                dismissErrorSnackBar()
             }
 
             is LoginState.Success -> {
@@ -74,16 +72,17 @@ class LoginFragment :
 //                    .build()
 //                findNavController().navigate(request)
                 navigate(
-                    R.id.action_loginFragment_to_instructionFragment,
+                    R.id.action_loginFragment_to_loanFragment,
                     com.example.mikailovproject.component.navigation.R.id.globalHost,
                 )
+                showBottomNavigation()
                 viewModel.clear()
             }
 
             is LoginState.Error -> {
                 progressBar.visibility = View.GONE
                 state.exception.message?.let {
-                    this@LoginFragment.showErrorSnackbar(it, false) { signUp() }
+                    this@LoginFragment.showErrorSnackbar(it) { signUp() }
                 }
             }
 

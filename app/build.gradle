@@ -40,7 +40,7 @@ dependencies {
     implementation(project(":shared:finalproject:core"))
     implementation(project(":feature:finalproject:registrationFragment"))
     implementation(project(":feature:finalproject:loginFragment"))
-    implementation(project(":feature:finalproject:instructionFragment"))
+    implementation(project(":feature:finalproject:loanFragment"))
     implementation(project(":component:navigation"))
     implementation(project(":network:retrofit"))
 

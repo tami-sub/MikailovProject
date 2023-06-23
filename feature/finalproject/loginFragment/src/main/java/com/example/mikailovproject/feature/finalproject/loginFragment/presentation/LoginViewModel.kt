@@ -1,9 +1,12 @@
 package com.example.mikailovproject.feature.finalproject.loginFragment.presentation
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mikailovproject.feature.finalproject.loginFragment.R
+import com.example.mikailovproject.network.retrofit.DomainException
 import com.example.mikailovproject.shared.finalproject.core.domain.usecase.PostLoginAuthUseCase
 import com.example.mikailovproject.shared.finalproject.core.sharedpreferences.AuthTokenManager
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -16,7 +19,8 @@ import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(
     private val postLoginAuthUseCase: PostLoginAuthUseCase,
-    private val authTokenManager: AuthTokenManager
+    private val authTokenManager: AuthTokenManager,
+    private val application: Application
 ) : ViewModel() {
 
     private val _state: MutableLiveData<LoginState> = MutableLiveData<LoginState>()
@@ -48,7 +52,13 @@ class LoginViewModel @Inject constructor(
                     }
                 }.onFailure { throwable ->
                     withContext(Dispatchers.Main) {
-                        _state.value = LoginState.Error(throwable)
+                        val customException =
+                            if (throwable is DomainException.NotFoundException) Exception(
+                                application.applicationContext.getString(
+                                    R.string.wrong_authentication
+                                )
+                            ) else throwable
+                        _state.value = LoginState.Error(customException)
                     }
                 }
             }

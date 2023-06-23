@@ -14,17 +14,17 @@
             app:destination="@id/loginFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/secondFragment"
-        android:name="com.example.mikailovproject.feature.finalproject.secondFragment.ui.SecondFragment"
-        android:label="SecondFragment">
+<!--    <fragment-->
+    <!--        android:id="@+id/secondFragment"-->
+    <!--        android:name="com.example.mikailovproject.feature.finalproject.secondFragment.ui.SecondFragment"-->
+    <!--        android:label="SecondFragment">-->
 
-        <deepLink app:uri="android-app://secondFragment?id={id}" />
-        <argument
-            android:name="id"
-            android:defaultValue=""
-            app:argType="string" />
-    </fragment>
+    <!--        <deepLink app:uri="android-app://secondFragment?id={id}" />-->
+    <!--        <argument-->
+    <!--            android:name="id"-->
+    <!--            android:defaultValue=""-->
+    <!--            app:argType="string" />-->
+    <!--    </fragment>-->
 
     <fragment
         android:id="@+id/loginFragment"
@@ -32,14 +32,19 @@
         android:label="LoginFragment">
         <action
             android:id="@+id/action_loginFragment_to_registrationFragment"
-            app:destination="@id/registrationFragment" />
+            app:destination="@id/registrationFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
         <action
-            android:id="@+id/action_loginFragment_to_instructionFragment"
-            app:destination="@id/instructionFragment" />
+            android:id="@+id/action_loginFragment_to_loanFragment"
+            app:destination="@id/loanFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
-        android:id="@+id/instructionFragment"
-        android:name="com.example.mikailovproject.feature.finalproject.instructionFragment.ui.InstructionFragment"
-        android:label="fragment_instruction"
-        tools:layout="@layout/fragment_instruction" />
+        android:id="@+id/loanFragment"
+        android:name="com.example.mikailovproject.feature.finalproject.loanFragment.ui.LoanFragment"
+        android:label="LoanFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim" />
 </navigation>

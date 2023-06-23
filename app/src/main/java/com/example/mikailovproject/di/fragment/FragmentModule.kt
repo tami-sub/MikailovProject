@@ -1,6 +1,6 @@
 package com.example.mikailovproject.di.fragment
 
-import com.example.mikailovproject.feature.finalproject.instructionFragment.ui.InstructionFragment
+import com.example.mikailovproject.feature.finalproject.loanFragment.ui.LoanFragment
 import com.example.mikailovproject.feature.finalproject.loginFragment.ui.LoginFragment
 import com.example.mikailovproject.feature.finalproject.registrationFragment.ui.RegistrationFragment
 import dagger.Module
@@ -16,5 +16,5 @@ interface FragmentModule {
     fun injectLoginFragment(): LoginFragment
 
     @ContributesAndroidInjector()
-    fun injectInstructionFragment(): InstructionFragment
+    fun injectLoanFragment(): LoanFragment
 }
