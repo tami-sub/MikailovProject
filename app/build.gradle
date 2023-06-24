@@ -38,9 +38,10 @@ android {
 
 dependencies {
     implementation(project(":shared:finalproject:core"))
-    implementation(project(":feature:finalproject:registrationFragment"))
-    implementation(project(":feature:finalproject:loginFragment"))
-    implementation(project(":feature:finalproject:loanFragment"))
+    implementation implementation(project(':feature:finalproject:registration_fragment'))
+    implementation implementation(project(':feature:finalproject:login_fragment'))
+    implementation implementation(project(':feature:finalproject:loan_fragment'))
+    implementation implementation(project(':feature:finalproject:history_fragment'))
     implementation(project(":component:navigation"))
     implementation(project(":network:retrofit"))
 
@@ -70,4 +71,9 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:2.44"
     kapt 'com.google.dagger:dagger-compiler:2.44'
     kapt 'com.google.dagger:dagger-android-processor:2.44'
+
+    //room
+    implementation 'androidx.room:room-runtime:2.5.2'
+    kapt 'androidx.room:room-compiler:2.5.2'
+    implementation "androidx.room:room-ktx:2.5.2"
 }

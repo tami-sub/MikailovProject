@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.example.mikailovproject.feature.finalproject.registrationFragment.ui.RegistrationFragment"
+        android:name="com.example.mikailovproject.feature.finalproject.registration_fragment.ui.RegistrationFragment"
         android:label="RegistrationFragment">
         <action
             android:id="@+id/action_registrationFragment_to_loginFragment"
@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.mikailovproject.feature.finalproject.loginFragment.ui.LoginFragment"
+        android:name="com.example.mikailovproject.feature.finalproject.login_fragment.ui.LoginFragment"
         android:label="LoginFragment">
         <action
             android:id="@+id/action_loginFragment_to_registrationFragment"
@@ -40,11 +40,18 @@
             app:destination="@id/loanFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_loginFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <fragment
         android:id="@+id/loanFragment"
-        android:name="com.example.mikailovproject.feature.finalproject.loanFragment.ui.LoanFragment"
+        android:name="com.example.mikailovproject.feature.finalproject.loan_fragment.ui.LoanFragment"
         android:label="LoanFragment"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.mikailovproject.feature.finalproject.history_fragment.ui.HistoryFragment"
+        android:label="HistoryFragment" />
 </navigation>

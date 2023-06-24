@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -66,13 +67,26 @@ abstract class BaseFragment<VB : ViewBinding>(
     protected fun dismissErrorSnackBar() = errorSnackbar?.dismiss()
 
     protected fun disappearBottomNavigation() {
-        requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation).visibility =
+        getBottomNavigationView().findViewById<BottomNavigationView>(R.id.bottom_navigation).visibility =
             View.GONE
     }
 
     protected fun showBottomNavigation() {
-        requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation).visibility =
+        getBottomNavigationView().visibility =
             View.VISIBLE
+    }
+
+    protected fun getBottomNavigationView(): BottomNavigationView =
+        requireActivity().findViewById(R.id.bottom_navigation)
+
+    protected fun hideKeyboard() {
+        val imm =
+            requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val view = requireActivity().currentFocus
+
+        if (view != null) {
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 
     protected abstract fun injectDependencies()

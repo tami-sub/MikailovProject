@@ -2,9 +2,10 @@ package com.example.mikailovproject.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.mikailovproject.feature.finalproject.loanFragment.presentation.LoanViewModel
-import com.example.mikailovproject.feature.finalproject.loginFragment.presentation.LoginViewModel
-import com.example.mikailovproject.feature.finalproject.registrationFragment.presentation.RegistrationViewModel
+import com.example.mikailovproject.feature.finalproject.history_fragment.presentation.HistoryViewModel
+import com.example.mikailovproject.feature.finalproject.loan_fragment.presentation.LoanViewModel
+import com.example.mikailovproject.feature.finalproject.login_fragment.presentation.LoginViewModel
+import com.example.mikailovproject.feature.finalproject.registration_fragment.presentation.RegistrationViewModel
 import com.example.mikailovproject.shared.finalproject.core.presentation.ViewModelFactory
 import dagger.Binds
 import dagger.Module
@@ -29,4 +30,9 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(LoanViewModel::class)
     fun loanViewModel(viewModel: LoanViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HistoryViewModel::class)
+    fun historyViewModel(viewModel: HistoryViewModel): ViewModel
 }

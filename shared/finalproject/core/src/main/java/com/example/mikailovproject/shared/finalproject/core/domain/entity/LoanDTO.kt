@@ -10,4 +10,18 @@ data class LoanDTO(
     val period: Int,
     val phoneNumber: String,
     val state: String,
-)
+) {
+    fun toEntity(): LoanEntity {
+        return LoanEntity(
+            id = id,
+            amount = amount,
+            date = date,
+            firstName = firstName,
+            lastName = lastName,
+            percent = percent,
+            period = period,
+            phoneNumber = phoneNumber,
+            state = state
+        )
+    }
+}

@@ -24,6 +24,8 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:outlineSpotShadowColor="@color/yellow_500"
+        android:outlineAmbientShadowColor="@color/yellow_500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

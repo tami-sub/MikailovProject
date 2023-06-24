@@ -3,8 +3,8 @@ package com.example.mikailovproject.di
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.mikailovproject.shared.finalproject.core.sharedpreferences.AuthTokenManager
-import com.example.mikailovproject.shared.finalproject.core.sharedpreferences.SharedPrefsAuthTokenManager
+import com.example.mikailovproject.shared.finalproject.core.data.sharedpreferences.AuthTokenManager
+import com.example.mikailovproject.shared.finalproject.core.data.sharedpreferences.SharedPrefsAuthTokenManager
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
