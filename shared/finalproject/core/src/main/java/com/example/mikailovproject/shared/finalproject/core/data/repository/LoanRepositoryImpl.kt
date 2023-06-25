@@ -18,7 +18,7 @@ class LoanRepositoryImpl @Inject constructor(
         return loanApi.postCreateLoan(loan)
     }
 
-    override suspend fun getLoanById(id: Long): Result<LoanDTO> {
+    override suspend fun getLoanById(id: String): Result<LoanDTO> {
         return loanApi.getLoanById(id)
     }
 

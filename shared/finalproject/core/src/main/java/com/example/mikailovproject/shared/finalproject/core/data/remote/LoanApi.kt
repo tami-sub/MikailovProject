@@ -12,7 +12,7 @@ interface LoanApi {
 
     @GET("loans/{id}")
     suspend fun getLoanById(
-        @Path("id") id: Long,
+        @Path("id") id: String,
     ): Result<LoanDTO>
 
     @GET("loans/all")

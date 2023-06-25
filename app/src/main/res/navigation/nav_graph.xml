@@ -13,19 +13,6 @@
             android:id="@+id/action_registrationFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
-
-<!--    <fragment-->
-    <!--        android:id="@+id/secondFragment"-->
-    <!--        android:name="com.example.mikailovproject.feature.finalproject.secondFragment.ui.SecondFragment"-->
-    <!--        android:label="SecondFragment">-->
-
-    <!--        <deepLink app:uri="android-app://secondFragment?id={id}" />-->
-    <!--        <argument-->
-    <!--            android:name="id"-->
-    <!--            android:defaultValue=""-->
-    <!--            app:argType="string" />-->
-    <!--    </fragment>-->
-
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.mikailovproject.feature.finalproject.login_fragment.ui.LoginFragment"
@@ -53,5 +40,20 @@
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.example.mikailovproject.feature.finalproject.history_fragment.ui.HistoryFragment"
-        android:label="HistoryFragment" />
+        android:label="HistoryFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim" />
+    <fragment
+        android:id="@+id/detailedLoanFragment"
+        android:name="com.example.mikailovproject.feature.finalproject.detailed_loan_fragment.ui.DetailedLoanFragment"
+        android:label="fragment_detailed_loan"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        tools:layout="@layout/fragment_detailed_loan">
+        <deepLink app:uri="android-app://detailedLoanFragment?id={id}" />
+        <argument
+            android:name="id"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
 </navigation>

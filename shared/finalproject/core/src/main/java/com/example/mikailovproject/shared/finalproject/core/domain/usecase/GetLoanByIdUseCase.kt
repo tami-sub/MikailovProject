@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class GetLoanByIdUseCase @Inject constructor(private val repository: LoanRepository) {
 
-    suspend operator fun invoke(id: Long): Result<LoanDTO> {
+    suspend operator fun invoke(id: String): Result<LoanDTO> {
         return repository.getLoanById(id)
     }
 }

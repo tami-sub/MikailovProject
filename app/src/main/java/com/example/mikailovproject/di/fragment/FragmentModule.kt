@@ -1,5 +1,6 @@
 package com.example.mikailovproject.di.fragment
 
+import com.example.mikailovproject.feature.finalproject.detailed_loan_fragment.ui.DetailedLoanFragment
 import com.example.mikailovproject.feature.finalproject.history_fragment.ui.HistoryFragment
 import com.example.mikailovproject.feature.finalproject.loan_fragment.ui.LoanFragment
 import com.example.mikailovproject.feature.finalproject.login_fragment.ui.LoginFragment
@@ -21,4 +22,7 @@ interface FragmentModule {
 
     @ContributesAndroidInjector()
     fun injectHistoryFragment(): HistoryFragment
+
+    @ContributesAndroidInjector()
+    fun injectDetailedLoanFragment(): DetailedLoanFragment
 }

@@ -31,7 +31,7 @@
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="Date_Text">
+    <style name="ItemTextView" parent="DefaultStyle">
         <item name="android:textSize">20sp</item>
     </style>
 </resources>

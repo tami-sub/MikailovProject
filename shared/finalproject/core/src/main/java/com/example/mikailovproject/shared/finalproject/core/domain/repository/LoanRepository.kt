@@ -9,7 +9,7 @@ interface LoanRepository {
 
     suspend fun getLoanConditions(): Result<LoanConditionsDTO>
 
-    suspend fun getLoanById(id: Long): Result<LoanDTO>
+    suspend fun getLoanById(id: String): Result<LoanDTO>
 
     suspend fun getAllLoans(): Result<List<LoanDTO>>
 

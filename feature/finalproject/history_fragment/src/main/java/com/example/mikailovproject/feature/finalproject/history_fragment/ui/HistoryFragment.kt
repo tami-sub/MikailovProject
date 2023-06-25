@@ -1,9 +1,7 @@
 package com.example.mikailovproject.feature.finalproject.history_fragment.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.mikailovproject.component.navigation.screen.navigate
@@ -63,12 +61,12 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(FragmentHistoryBind
 
             is HistoryState.Success -> {
                 progressBar.visibility = View.GONE
-                showRecyclerView(state.allLoans)
+                showRecyclerView(state.allLoans, true)
 
             }
             is HistoryState.Error -> {
                 progressBar.visibility = View.GONE
-                showRecyclerView(state.allLoans)
+                showRecyclerView(state.allLoans, false)
 
                 state.exception.message?.let {
                     this@HistoryFragment.showErrorSnackbar(it) {
@@ -81,9 +79,9 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(FragmentHistoryBind
         }
     }
 
-    private fun showRecyclerView(data: List<LoanEntity>) {
+    private fun showRecyclerView(data: List<LoanEntity>, isRemote: Boolean) {
         binding.recyclerView.apply {
-            val applicationAdapter = HistoryAdapter()
+            val applicationAdapter = HistoryAdapter(findNavController(), isRemote)
             applicationAdapter.storageList = data
             adapter = applicationAdapter
         }

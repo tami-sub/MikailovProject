@@ -107,13 +107,13 @@ class LoanFragment : BaseFragment<FragmentLoanBinding>(FragmentLoanBinding::infl
                 applyLoanButton.visibility = View.GONE
                 with(itemLoan) {
                     itemDate.text = convertDateTimeToReadableFormat(state.loan.date)
-                    itemName.setText(state.loan.firstName)
-                    itemLastname.setText(state.loan.lastName)
-                    itemAmount.setText(state.loan.amount.toString())
-                    itemPercent.setText(state.loan.percent.toString())
-                    itemPeriod.setText(state.loan.period.toString())
-                    itemNumber.setText(state.loan.phoneNumber)
-                    itemStatus.setText(state.loan.state)
+                    itemName.text = state.loan.firstName
+                    itemLastname.text = state.loan.lastName
+                    itemAmount.text = state.loan.amount.toString()
+                    itemPercent.text = state.loan.percent.toString()
+                    itemPeriod.text = state.loan.period.toString()
+                    itemNumber.text = state.loan.phoneNumber
+                    itemStatus.text = state.loan.state
                 }
                 itemLoan.root.visibility = View.VISIBLE
                 doneImage.visibility = View.VISIBLE

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_loan_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_date"
+        style="@style/ItemTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/date_hint"
+        app:layout_constraintBottom_toTopOf="@id/item_name_hint"
+        app:layout_constraintEnd_toEndOf="@+id/item_lastname"
+        app:layout_constraintStart_toStartOf="@+id/item_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_name_hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/name_hint"
+        app:layout_constraintBottom_toTopOf="@+id/item_name"
+        app:layout_constraintStart_toStartOf="@+id/item_name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_name"
+        style="@style/ItemTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/name_hint"
+        app:layout_constraintBottom_toTopOf="@+id/item_amount"
+        app:layout_constraintEnd_toStartOf="@+id/item_lastname"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_date"
+        app:layout_constraintVertical_bias="0.15"></com.google.android.material.textview.MaterialTextView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/lastname_hint"
+        app:layout_constraintBottom_toTopOf="@+id/item_lastname"
+        app:layout_constraintStart_toStartOf="@+id/item_lastname"
+        app:layout_constraintTop_toBottomOf="@+id/item_date" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_lastname"
+        style="@style/ItemTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/lastname_hint"
+        app:layout_constraintBottom_toBottomOf="@+id/item_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/item_name"
+        app:layout_constraintTop_toTopOf="@+id/item_name"
+        app:layout_constraintVertical_bias="0.15"></com.google.android.material.textview.MaterialTextView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_amount_hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/amount_hint"
+        app:layout_constraintBottom_toTopOf="@+id/item_amount"
+        app:layout_constraintStart_toStartOf="@+id/item_amount"
+        app:layout_constraintTop_toBottomOf="@+id/item_name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_amount"
+        style="@style/ItemTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/amount_hint"
+        app:layout_constraintBottom_toTopOf="@+id/item_number"
+        app:layout_constraintEnd_toEndOf="@+id/item_name"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/item_name"
+        app:layout_constraintTop_toBottomOf="@+id/item_name"
+        app:layout_constraintVertical_bias="0.15"></com.google.android.material.textview.MaterialTextView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/period_hint"
+        app:layout_constraintBottom_toTopOf="@+id/item_period"
+        app:layout_constraintStart_toStartOf="@+id/item_period"
+        app:layout_constraintTop_toBottomOf="@+id/item_lastname" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_period"
+        style="@style/ItemTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/period_hint"
+        app:layout_constraintBottom_toBottomOf="@+id/item_amount"
+        app:layout_constraintEnd_toStartOf="@+id/item_percent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toStartOf="@+id/item_lastname"
+        app:layout_constraintTop_toBottomOf="@+id/item_lastname"
+        app:layout_constraintVertical_bias="1.0"></com.google.android.material.textview.MaterialTextView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/percent_hint"
+        app:layout_constraintBottom_toTopOf="@+id/item_percent"
+        app:layout_constraintStart_toStartOf="@+id/item_percent"
+        app:layout_constraintTop_toBottomOf="@+id/item_lastname" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_percent"
+        style="@style/ItemTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/percent_hint"
+        app:layout_constraintBottom_toBottomOf="@+id/item_period"
+        app:layout_constraintEnd_toEndOf="@+id/item_lastname"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toEndOf="@+id/item_period"
+        app:layout_constraintTop_toTopOf="@+id/item_period"
+        app:layout_constraintVertical_bias="1.0"></com.google.android.material.textview.MaterialTextView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/number_hint"
+        app:layout_constraintBottom_toTopOf="@+id/item_number"
+        app:layout_constraintStart_toStartOf="@+id/item_number"
+        app:layout_constraintTop_toBottomOf="@+id/item_amount" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_number"
+        style="@style/ItemTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/number_hint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/item_amount"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/item_amount"
+        app:layout_constraintTop_toBottomOf="@+id/item_amount"
+        app:layout_constraintVertical_bias="0.15"></com.google.android.material.textview.MaterialTextView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/status_hint"
+        app:layout_constraintBottom_toTopOf="@+id/item_status"
+        app:layout_constraintStart_toStartOf="@+id/item_status"
+        app:layout_constraintTop_toBottomOf="@+id/item_percent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_status"
+        style="@style/ItemTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/status_hint"
+        app:layout_constraintBottom_toBottomOf="@+id/item_number"
+        app:layout_constraintEnd_toEndOf="@+id/item_lastname"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/item_period"
+        app:layout_constraintTop_toTopOf="@+id/item_number"
+        app:layout_constraintVertical_bias="0.15"></com.google.android.material.textview.MaterialTextView>
+</androidx.constraintlayout.widget.ConstraintLayout>

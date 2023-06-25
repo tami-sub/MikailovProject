@@ -2,6 +2,7 @@ package com.example.mikailovproject.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.mikailovproject.feature.finalproject.detailed_loan_fragment.presentation.DetailedLoanViewModel
 import com.example.mikailovproject.feature.finalproject.history_fragment.presentation.HistoryViewModel
 import com.example.mikailovproject.feature.finalproject.loan_fragment.presentation.LoanViewModel
 import com.example.mikailovproject.feature.finalproject.login_fragment.presentation.LoginViewModel
@@ -35,4 +36,9 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(HistoryViewModel::class)
     fun historyViewModel(viewModel: HistoryViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailedLoanViewModel::class)
+    fun detailedLoanViewModel(viewModel: DetailedLoanViewModel): ViewModel
 }

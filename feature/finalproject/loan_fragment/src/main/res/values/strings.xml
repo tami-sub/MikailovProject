@@ -11,4 +11,5 @@
     <string name="hollow_space">&#160;</string>
     <string name="relogin">You should relogin for a new loan request</string>
     <string name="apply">Apply</string>
+    <string name="instruction">\nИНСТРУКЦИЯ\n\nИНСТРУКЦИЯ\n\nИНСТРУКЦИЯ\n\nИНСТРУКЦИЯ\n\nИНСТРУКЦИЯ\n\n</string>
 </resources>

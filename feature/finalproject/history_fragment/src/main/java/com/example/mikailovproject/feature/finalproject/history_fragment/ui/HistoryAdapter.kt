@@ -2,13 +2,17 @@ package com.example.mikailovproject.feature.finalproject.history_fragment.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.net.toUri
+import androidx.navigation.NavController
+import androidx.navigation.NavDeepLinkRequest
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mikailovproject.feature.finalproject.history_fragment.databinding.ItemLoanBinding
+import com.example.mikailovproject.shared.finalproject.core.databinding.ItemLoanBinding
 import com.example.mikailovproject.shared.finalproject.core.domain.entity.LoanEntity
 import com.example.mikailovproject.shared.finalproject.core.utils.Utils.convertDateTimeToReadableFormat
 
-class HistoryAdapter() : RecyclerView.Adapter<HistoryAdapter.LoanViewHolder>() {
+class HistoryAdapter(private val findNavController: NavController, private val isRemote: Boolean) :
+    RecyclerView.Adapter<HistoryAdapter.LoanViewHolder>() {
 
     var storageList: List<LoanEntity> = emptyList()
         set(value) {
@@ -18,15 +22,26 @@ class HistoryAdapter() : RecyclerView.Adapter<HistoryAdapter.LoanViewHolder>() {
             diffResult.dispatchUpdatesTo(this)
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        LoanViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LoanViewHolder {
+        return LoanViewHolder(
             ItemLoanBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
+    }
 
     override fun onBindViewHolder(holder: LoanViewHolder, position: Int) {
-        holder.bind(storageList[position])
+        val itemLoan = storageList[position]
+        holder.bind(itemLoan)
+        if (isRemote) {
+            holder.itemView.setOnClickListener {
+                val id = itemLoan.id
+                val request = NavDeepLinkRequest.Builder
+                    .fromUri("android-app://detailedLoanFragment?id=$id".toUri())
+                    .build()
+                findNavController.navigate(request)
+            }
+        }
     }
 
     override fun getItemCount(): Int = storageList.size
@@ -37,13 +52,13 @@ class HistoryAdapter() : RecyclerView.Adapter<HistoryAdapter.LoanViewHolder>() {
 
         fun bind(loan: LoanEntity) = with(binding) {
             itemDate.text = convertDateTimeToReadableFormat(loan.date)
-            itemName.setText(loan.firstName)
-            itemLastname.setText(loan.lastName)
-            itemAmount.setText(loan.amount.toString())
-            itemPercent.setText(loan.percent.toString())
-            itemPeriod.setText(loan.period.toString())
-            itemNumber.setText(loan.phoneNumber)
-            itemStatus.setText(loan.state)
+            itemName.text = loan.firstName
+            itemLastname.text = loan.lastName
+            itemAmount.text = loan.amount.toString()
+            itemPercent.text = loan.percent.toString()
+            itemPeriod.text = loan.period.toString()
+            itemNumber.text = loan.phoneNumber
+            itemStatus.text = loan.state
         }
     }
 
