@@ -1,5 +1,6 @@
 package com.example.mikailovproject.feature.finalproject.history_fragment.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -34,6 +35,7 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(FragmentHistoryBind
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getBottomNavigationView().menu.findItem(NavR.id.history).isChecked = true
         getBottomNavigationView().setOnItemSelectedListener { item ->
             when (item.itemId) {
                 NavR.id.loan -> {

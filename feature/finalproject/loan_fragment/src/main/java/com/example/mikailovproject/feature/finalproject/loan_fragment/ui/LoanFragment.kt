@@ -33,6 +33,7 @@ class LoanFragment : BaseFragment<FragmentLoanBinding>(FragmentLoanBinding::infl
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getBottomNavigationView().menu.findItem(NavR.id.loan).isChecked = true
         with(binding) {
             applyLoanButton.setOnClickListener {
                 hideKeyboard()
