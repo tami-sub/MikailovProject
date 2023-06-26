@@ -9,6 +9,7 @@ import com.example.mikailovproject.feature.finalproject.login_fragment.R
 import com.example.mikailovproject.network.retrofit.DomainException
 import com.example.mikailovproject.shared.finalproject.core.domain.usecase.PostLoginAuthUseCase
 import com.example.mikailovproject.shared.finalproject.core.data.sharedpreferences.AuthTokenManager
+import com.example.mikailovproject.shared.finalproject.core.domain.usecase.DeleteAllLoansUseCase
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,6 +20,7 @@ import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(
     private val postLoginAuthUseCase: PostLoginAuthUseCase,
+    private val deleteAllLoansUseCase: DeleteAllLoansUseCase,
     private val authTokenManager: AuthTokenManager,
     private val application: Application
 ) : ViewModel() {
@@ -46,6 +48,7 @@ class LoginViewModel @Inject constructor(
             _state.value = LoginState.Loading
             withContext(Dispatchers.IO) {
                 postLoginAuthUseCase.invoke(name, password).onSuccess {
+                    deleteAllLoansUseCase.invoke()
                     withContext(Dispatchers.Main) {
                         authTokenManager.saveAuthToken(it)
                         _state.value = LoginState.Success

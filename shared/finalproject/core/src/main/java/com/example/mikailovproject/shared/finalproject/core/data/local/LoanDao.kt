@@ -13,4 +13,7 @@ interface LoanDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertLoans(loans: List<LoanEntity>)
+
+    @Query("DELETE FROM loans")
+    suspend fun deleteAllLoans()
 }

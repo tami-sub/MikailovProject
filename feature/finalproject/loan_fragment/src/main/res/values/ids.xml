@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="action_loginFragment_to_historyFragment" type="id" />
+    <item name="action_loanFragment_to_historyFragment" type="id" />
+    <item name="loanFragment" type="id" />
 </resources>

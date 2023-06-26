@@ -38,12 +38,11 @@ class DetailedLoanFragment :
         getBottomNavigationView().setOnItemSelectedListener { item ->
             when (item.itemId) {
                 NavR.id.loan -> {
-                    findNavController().popBackStack()
-                    findNavController().popBackStack()
-                    navigate(R.id.action_loginFragment_to_loanFragment)
+                    navigate(R.id.action_detailedLoanFragment_to_loanFragment)
                     true
                 }
                 NavR.id.history -> {
+                    findNavController().popBackStack()
                     true
                 }
                 else -> false

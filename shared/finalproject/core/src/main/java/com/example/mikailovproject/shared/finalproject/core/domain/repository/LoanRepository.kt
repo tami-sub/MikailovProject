@@ -16,4 +16,6 @@ interface LoanRepository {
     suspend fun postCreateLoan(loan: LoanRequestDTO): Result<LoanDTO>
 
     suspend fun getAllLoansFromDatabase(): List<LoanEntity>
+
+    suspend fun deleteAllLoansFromDatabase()
 }

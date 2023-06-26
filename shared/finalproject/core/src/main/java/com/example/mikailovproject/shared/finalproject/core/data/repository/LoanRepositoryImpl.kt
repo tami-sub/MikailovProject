@@ -37,4 +37,8 @@ class LoanRepositoryImpl @Inject constructor(
     override suspend fun getAllLoansFromDatabase(): List<LoanEntity> {
         return loanDao.getAllLoans()
     }
+
+    override suspend fun deleteAllLoansFromDatabase() {
+        return loanDao.deleteAllLoans()
+    }
 }

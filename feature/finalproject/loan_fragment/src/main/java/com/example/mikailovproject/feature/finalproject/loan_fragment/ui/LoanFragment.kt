@@ -46,9 +46,8 @@ class LoanFragment : BaseFragment<FragmentLoanBinding>(FragmentLoanBinding::infl
                     true
                 }
                 NavR.id.history -> {
-                    findNavController().popBackStack()
                     navigate(
-                        R.id.action_loginFragment_to_historyFragment,
+                        R.id.action_loanFragment_to_historyFragment,
                         com.example.mikailovproject.component.navigation.R.id.globalHost,
                     )
                     true

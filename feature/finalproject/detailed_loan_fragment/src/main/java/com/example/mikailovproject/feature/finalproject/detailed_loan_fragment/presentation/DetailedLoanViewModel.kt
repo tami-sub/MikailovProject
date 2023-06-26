@@ -37,18 +37,18 @@ class DetailedLoanViewModel @Inject constructor(
     }
 
     fun getLoanById(id: String) {
+        _state.value = DetailedLoanState.Loading
         viewModelScope.launch(exceptionHandler) {
             withContext(Dispatchers.IO) {
-                getLoanByIdUseCase.invoke(id)
-                    .onSuccess {
-                        withContext(Dispatchers.Main){
-                            _state.value = DetailedLoanState.Success(it)
-                        }
-                    }.onFailure {
-                        withContext(Dispatchers.Main){
-                            _state.value = DetailedLoanState.Error(it)
-                        }
+                getLoanByIdUseCase.invoke(id).onSuccess {
+                    withContext(Dispatchers.Main) {
+                        _state.value = DetailedLoanState.Success(it)
                     }
+                }.onFailure {
+                    withContext(Dispatchers.Main) {
+                        _state.value = DetailedLoanState.Error(it)
+                    }
+                }
             }
         }
     }
