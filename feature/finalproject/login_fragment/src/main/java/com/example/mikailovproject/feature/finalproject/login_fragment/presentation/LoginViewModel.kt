@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mikailovproject.feature.finalproject.login_fragment.R
+import com.example.mikailovproject.network.retrofit.AuthInterceptor
 import com.example.mikailovproject.network.retrofit.DomainException
 import com.example.mikailovproject.shared.finalproject.core.domain.usecase.PostLoginAuthUseCase
 import com.example.mikailovproject.shared.finalproject.core.data.sharedpreferences.AuthTokenManager
@@ -22,6 +23,7 @@ class LoginViewModel @Inject constructor(
     private val postLoginAuthUseCase: PostLoginAuthUseCase,
     private val deleteAllLoansUseCase: DeleteAllLoansUseCase,
     private val authTokenManager: AuthTokenManager,
+    private val authInterceptor: AuthInterceptor,
     private val application: Application
 ) : ViewModel() {
 
@@ -43,7 +45,7 @@ class LoginViewModel @Inject constructor(
         _state.value = LoginState.Clear
     }
 
-    fun signUp(name: String, password: String) {
+    fun signIn(name: String, password: String) {
         viewModelScope.launch(exceptionHandler) {
             _state.value = LoginState.Loading
             withContext(Dispatchers.IO) {
@@ -51,6 +53,7 @@ class LoginViewModel @Inject constructor(
                     deleteAllLoansUseCase.invoke()
                     withContext(Dispatchers.Main) {
                         authTokenManager.saveAuthToken(it)
+                        authInterceptor.updateToken(it)
                         _state.value = LoginState.Success
                     }
                 }.onFailure { throwable ->
@@ -68,8 +71,10 @@ class LoginViewModel @Inject constructor(
         }
     }
 
-    fun checkTokenInSharedPrefs() {
+    fun checkHasTokenInSharedPrefs() {
         if (authTokenManager.getAuthToken()?.isNotEmpty() == true) {
+            val token = authTokenManager.getAuthToken() ?: ""
+            authInterceptor.updateToken(token)
             _state.value = LoginState.Success
         }
     }

@@ -9,9 +9,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.mikailovproject.feature.finalproject.loan_fragment.R
 import com.example.mikailovproject.network.retrofit.AuthInterceptor
 import com.example.mikailovproject.network.retrofit.DomainException
+import com.example.mikailovproject.shared.finalproject.core.data.sharedpreferences.AuthTokenManager
 import com.example.mikailovproject.shared.finalproject.core.domain.usecase.GetLoanConditionsUseCase
 import com.example.mikailovproject.shared.finalproject.core.domain.usecase.PostCreateLoanUseCase
-import com.example.mikailovproject.shared.finalproject.core.data.sharedpreferences.AuthTokenManager
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -40,8 +40,6 @@ class LoanViewModel @Inject constructor(
     }
 
     init {
-        token = authTokenManager.getAuthToken() ?: ""
-        authInterceptor.updateToken(token)
         getLoanConditions()
     }
 

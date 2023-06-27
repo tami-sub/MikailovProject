@@ -27,7 +27,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this, viewModelFactory)[LoginViewModel::class.java]
-        viewModel.checkTokenInSharedPrefs()
+        viewModel.checkHasTokenInSharedPrefs()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -93,7 +93,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     }
 
     private fun signUp() = with(binding) {
-        if (validateFields()) viewModel.signUp(login.text.toString(), password.text.toString())
+        if (validateFields()) viewModel.signIn(login.text.toString(), password.text.toString())
     }
 
     private fun validateFields(): Boolean {

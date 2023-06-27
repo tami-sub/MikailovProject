@@ -3,4 +3,5 @@ package com.example.mikailovproject.shared.finalproject.core.data.sharedpreferen
 interface AuthTokenManager {
     fun saveAuthToken(token: String)
     fun getAuthToken(): String?
+    fun deleteAuthToken()
 }

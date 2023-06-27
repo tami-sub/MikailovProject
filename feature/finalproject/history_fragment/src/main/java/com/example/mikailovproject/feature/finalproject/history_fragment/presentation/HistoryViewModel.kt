@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mikailovproject.network.retrofit.AuthInterceptor
-import com.example.mikailovproject.shared.finalproject.core.data.sharedpreferences.AuthTokenManager
 import com.example.mikailovproject.shared.finalproject.core.domain.usecase.GetAllLoansUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,9 +11,7 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class HistoryViewModel @Inject constructor(
-    private val getAllLoansUseCase: GetAllLoansUseCase,
-    authTokenManager: AuthTokenManager,
-    authInterceptor: AuthInterceptor
+    private val getAllLoansUseCase: GetAllLoansUseCase
 ) : ViewModel() {
     private var token: String = ""
 
@@ -23,8 +19,6 @@ class HistoryViewModel @Inject constructor(
     val state: LiveData<HistoryState> = _state
 
     init {
-        token = authTokenManager.getAuthToken() ?: ""
-        authInterceptor.updateToken(token)
         getAllLoans()
     }
 

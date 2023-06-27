@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mikailovproject.network.retrofit.AuthInterceptor
-import com.example.mikailovproject.shared.finalproject.core.data.sharedpreferences.AuthTokenManager
 import com.example.mikailovproject.shared.finalproject.core.domain.usecase.GetLoanByIdUseCase
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -15,19 +13,12 @@ import java.net.UnknownHostException
 import javax.inject.Inject
 
 class DetailedLoanViewModel @Inject constructor(
-    private val getLoanByIdUseCase: GetLoanByIdUseCase,
-    authTokenManager: AuthTokenManager,
-    authInterceptor: AuthInterceptor
+    private val getLoanByIdUseCase: GetLoanByIdUseCase
 ) : ViewModel() {
     private var token: String = ""
 
     private val _state: MutableLiveData<DetailedLoanState> = MutableLiveData<DetailedLoanState>()
     val state: LiveData<DetailedLoanState> = _state
-
-    init {
-        token = authTokenManager.getAuthToken() ?: ""
-        authInterceptor.updateToken(token)
-    }
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         when (throwable) {

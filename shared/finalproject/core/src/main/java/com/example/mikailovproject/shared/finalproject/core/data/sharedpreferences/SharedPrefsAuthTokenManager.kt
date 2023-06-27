@@ -14,4 +14,8 @@ class SharedPrefsAuthTokenManager @Inject constructor(private val sharedPreferen
     override fun getAuthToken(): String? {
         return sharedPreferences.getString(AUTH_TOKEN, null)
     }
+
+    override fun deleteAuthToken() {
+        sharedPreferences.edit().remove(AUTH_TOKEN).apply()
+    }
 }

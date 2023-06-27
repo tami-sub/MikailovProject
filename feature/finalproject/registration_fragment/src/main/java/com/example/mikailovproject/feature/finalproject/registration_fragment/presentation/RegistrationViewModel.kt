@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mikailovproject.shared.finalproject.core.data.sharedpreferences.AuthTokenManager
 import com.example.mikailovproject.shared.finalproject.core.domain.usecase.PostRegistrationAuthUseCase
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +15,8 @@ import java.util.regex.Pattern
 import javax.inject.Inject
 
 class RegistrationViewModel @Inject constructor(
-    private val registrationAuthUseCase: PostRegistrationAuthUseCase
+    private val registrationAuthUseCase: PostRegistrationAuthUseCase,
+    private val authTokenManager: AuthTokenManager
 ) : ViewModel() {
 
     private val _state: MutableLiveData<RegistrationState> = MutableLiveData<RegistrationState>()
@@ -41,6 +43,7 @@ class RegistrationViewModel @Inject constructor(
             withContext(Dispatchers.IO) {
                 registrationAuthUseCase.invoke(name, password).onSuccess {
                     withContext(Dispatchers.Main) {
+                        authTokenManager.deleteAuthToken()
                         _state.value = RegistrationState.Success
                     }
                 }.onFailure { throwable ->
