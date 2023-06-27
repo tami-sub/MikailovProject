@@ -57,14 +57,13 @@ class RegistrationViewModel @Inject constructor(
 
     fun validateLogin(name: String): Boolean = when {
         name.isEmpty() -> false
-        Pattern.compile("^[A-ZА-ЯЁ][a-z,а-я-'ё]{0,19}$").matcher(name).find() -> true
+        Pattern.compile("^[A-ZА-ЯЁa-z,а-я-'ё]{0,20}$").matcher(name).find() -> true
         else -> false
     }
 
     fun validatePassword(password: String): Boolean = when {
         password.isEmpty() -> false
-        Pattern.compile("^(?=.*\\d)(?=.*[a-z,а-я])(?=.*[A-ZА-ЯЁ])(?=.*[@#$%^&+=!?])(?=\\S+$).{4,25}$")
-            .matcher(password).find() -> true
+        password.isNotEmpty() -> true
         else -> false
     }
 }

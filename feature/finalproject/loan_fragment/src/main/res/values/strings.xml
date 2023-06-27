@@ -5,11 +5,11 @@
     <string name="percent">%1$s\%\u0025</string>
     <string name="period">%1$sM</string>
     <string name="max_amount">Max amount: %1$s</string>
-    <string name="name_error_text">Max 20 chars, no whitespaces</string>
+    <string name="name_error_text">Max length is 20 and first char is uppercase, no whitespaces</string>
     <string name="max_amount_text">Max amount: </string>
     <string name="incorrect_phone_number">Incorrect phone number</string>
     <string name="hollow_space">&#160;</string>
     <string name="relogin">You should relogin for a new loan request</string>
     <string name="apply">Apply</string>
-    <string name="instruction">\nИНСТРУКЦИЯ\n\nИНСТРУКЦИЯ\n\nИНСТРУКЦИЯ\n\nИНСТРУКЦИЯ\n\nИНСТРУКЦИЯ\n\n</string>
+    <string name="instruction">\nINSTRUCTION\n\nEnter Name and Lastname\n\nEnter desirable amount of money no more than is specified in the hint\n\nEnter your phone number\n\nIf you correctly entered your data, then press the apply button\n</string>
 </resources>

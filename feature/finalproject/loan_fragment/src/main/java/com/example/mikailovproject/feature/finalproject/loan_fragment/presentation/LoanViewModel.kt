@@ -68,7 +68,7 @@ class LoanViewModel @Inject constructor(
 
     fun validateName(name: String): Boolean = when {
         name.isEmpty() -> false
-        Pattern.compile("^[A-ZА-ЯЁa-z,а-я-'ё]{0,20}$").matcher(name).find() -> true
+        Pattern.compile("^[A-ZА-ЯЁ][a-z,а-я-'ё]{0,19}$").matcher(name).find() -> true
         else -> false
     }
 
