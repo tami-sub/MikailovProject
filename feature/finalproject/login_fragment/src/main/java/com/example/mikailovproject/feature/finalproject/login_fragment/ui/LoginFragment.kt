@@ -27,6 +27,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this, viewModelFactory)[LoginViewModel::class.java]
+        viewModel.checkTokenInSharedPrefs()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,6 +57,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         viewModel.state.observe(viewLifecycleOwner) { newState ->
             renderState(newState)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        disappearBottomNavigation()
     }
 
     private fun renderState(state: LoginState) = with(binding) {

@@ -48,6 +48,7 @@ class DetailedLoanFragment :
                 else -> false
             }
         }
+
         val id = arguments?.getString("id")
         if (id != null) {
             viewModel.getLoanById(id)
@@ -76,8 +77,8 @@ class DetailedLoanFragment :
                     itemNumber.text = state.loan.phoneNumber
                     itemStatus.text = state.loan.state
                 }
-
             }
+
             is DetailedLoanState.Error -> {
                 progressBar.visibility = View.GONE
 

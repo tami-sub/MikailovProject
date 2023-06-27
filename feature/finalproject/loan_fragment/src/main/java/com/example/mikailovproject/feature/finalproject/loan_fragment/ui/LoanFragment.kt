@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.example.mikailovproject.component.navigation.screen.navigate
 import com.example.mikailovproject.feature.finalproject.loan_fragment.R
 import com.example.mikailovproject.feature.finalproject.loan_fragment.databinding.FragmentLoanBinding
@@ -58,6 +57,11 @@ class LoanFragment : BaseFragment<FragmentLoanBinding>(FragmentLoanBinding::infl
         viewModel.state.observe(viewLifecycleOwner) { newState ->
             renderState(newState)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showBottomNavigation()
     }
 
     override fun injectDependencies() {

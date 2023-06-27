@@ -68,6 +68,12 @@ class LoginViewModel @Inject constructor(
         }
     }
 
+    fun checkTokenInSharedPrefs() {
+        if (authTokenManager.getAuthToken()?.isNotEmpty() == true) {
+            _state.value = LoginState.Success
+        }
+    }
+
     fun validateLogin(name: String): Boolean = when {
         name.isEmpty() -> false
         Pattern.compile("^[A-ZА-ЯЁ][a-z,а-я-'ё]{0,19}$").matcher(name).find() -> true
