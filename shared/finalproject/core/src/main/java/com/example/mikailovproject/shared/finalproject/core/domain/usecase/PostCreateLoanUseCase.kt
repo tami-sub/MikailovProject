@@ -8,7 +8,7 @@ import javax.inject.Inject
 class PostCreateLoanUseCase @Inject constructor(private val repository: LoanRepository) {
 
     suspend operator fun invoke(
-        amount: Long,
+        amount: Double,
         firstName: String,
         lastName: String,
         percent: Double,

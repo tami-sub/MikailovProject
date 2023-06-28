@@ -1,7 +1,7 @@
 package com.example.mikailovproject.shared.finalproject.core.domain.entity
 
 data class LoanRequestDTO(
-    val amount: Long,
+    val amount: Double,
     val firstName: String,
     val lastName: String,
     val percent: Double,

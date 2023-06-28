@@ -142,7 +142,7 @@ class LoanFragment : BaseFragment<FragmentLoanBinding>(FragmentLoanBinding::infl
     private fun createLoan() = with(binding) {
         if (validateFields()) {
             viewModel.createLoan(
-                amount = amount.text.toString().trim().toLong(),
+                amount = amount.text.toString().trim().toDouble(),
                 firstName = name.text.toString(),
                 lastName = lastname.text.toString(),
                 percent = percentValue,

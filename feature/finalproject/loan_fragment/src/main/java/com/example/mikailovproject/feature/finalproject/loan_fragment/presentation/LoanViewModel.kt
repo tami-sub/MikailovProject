@@ -85,7 +85,7 @@ class LoanViewModel @Inject constructor(
     }
 
     fun createLoan(
-        amount: Long,
+        amount: Double,
         firstName: String,
         lastName: String,
         percent: Double,
