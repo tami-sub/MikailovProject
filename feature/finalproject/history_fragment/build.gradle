@@ -69,4 +69,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.1'
     androidTestImplementation 'androidx.test.espresso:espresso-intents:3.5.1'
     androidTestImplementation 'androidx.fragment:fragment-testing:1.6.0'
+
+    //SwipeToRefresh
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 }

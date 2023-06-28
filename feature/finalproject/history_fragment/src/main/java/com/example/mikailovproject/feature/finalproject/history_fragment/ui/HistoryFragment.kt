@@ -21,6 +21,7 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(FragmentHistoryBind
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
     private lateinit var viewModel: HistoryViewModel
+    private var isRefreshing = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +46,10 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(FragmentHistoryBind
                 }
                 else -> false
             }
+        }
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.getAllLoans()
+            binding.swipeRefreshLayout.isRefreshing = false
         }
         viewModel.state.observe(viewLifecycleOwner) { newState ->
             renderState(newState)
