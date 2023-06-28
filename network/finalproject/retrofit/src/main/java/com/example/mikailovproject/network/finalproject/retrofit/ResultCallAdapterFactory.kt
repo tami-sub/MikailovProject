@@ -1,4 +1,4 @@
-package com.example.mikailovproject.network.retrofit
+package com.example.mikailovproject.network.finalproject.retrofit
 
 import android.content.Context
 import retrofit2.Call

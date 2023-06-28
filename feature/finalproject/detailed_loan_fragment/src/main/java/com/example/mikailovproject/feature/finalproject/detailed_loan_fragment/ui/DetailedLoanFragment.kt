@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.mikailovproject.component.navigation.screen.navigate
+import com.example.mikailovproject.component.finalproject.navigation.screen.navigate
 import com.example.mikailovproject.feature.finalproject.detailed_loan_fragment.R
 import com.example.mikailovproject.feature.finalproject.detailed_loan_fragment.databinding.FragmentDetailedLoanBinding
 import com.example.mikailovproject.feature.finalproject.detailed_loan_fragment.presentation.DetailedLoanState
@@ -13,7 +13,7 @@ import com.example.mikailovproject.shared.finalproject.core.presentation.ViewMod
 import com.example.mikailovproject.shared.finalproject.core.ui.BaseFragment
 import com.example.mikailovproject.shared.finalproject.core.utils.Utils
 import dagger.android.support.AndroidSupportInjection
-import com.example.mikailovproject.component.navigation.R as NavR
+import com.example.mikailovproject.component.finalproject.navigation.R as NavR
 import javax.inject.Inject
 
 class DetailedLoanFragment :

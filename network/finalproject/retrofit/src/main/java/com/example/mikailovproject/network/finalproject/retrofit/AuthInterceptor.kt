@@ -1,4 +1,4 @@
-package com.example.mikailovproject.network.retrofit
+package com.example.mikailovproject.network.finalproject.retrofit
 
 import okhttp3.Interceptor
 import okhttp3.Response

@@ -15,7 +15,6 @@ import javax.inject.Inject
 class DetailedLoanViewModel @Inject constructor(
     private val getLoanByIdUseCase: GetLoanByIdUseCase
 ) : ViewModel() {
-    private var token: String = ""
 
     private val _state: MutableLiveData<DetailedLoanState> = MutableLiveData<DetailedLoanState>()
     val state: LiveData<DetailedLoanState> = _state

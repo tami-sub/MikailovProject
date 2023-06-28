@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mikailovproject.network.retrofit">
+    package="com.example.mikailovproject.network.finalproject.retrofit">
 
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

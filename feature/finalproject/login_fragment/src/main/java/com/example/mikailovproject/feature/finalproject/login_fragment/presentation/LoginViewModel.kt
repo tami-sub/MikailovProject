@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mikailovproject.feature.finalproject.login_fragment.R
-import com.example.mikailovproject.network.retrofit.AuthInterceptor
-import com.example.mikailovproject.network.retrofit.DomainException
+import com.example.mikailovproject.network.finalproject.retrofit.AuthInterceptor
+import com.example.mikailovproject.network.finalproject.retrofit.DomainException
 import com.example.mikailovproject.shared.finalproject.core.data.sharedpreferences.AuthTokenManager
 import com.example.mikailovproject.shared.finalproject.core.domain.usecase.DeleteAllLoansUseCase
 import com.example.mikailovproject.shared.finalproject.core.domain.usecase.PostLoginAuthUseCase

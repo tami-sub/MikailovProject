@@ -1,4 +1,4 @@
-package com.example.mikailovproject.network.retrofit
+package com.example.mikailovproject.network.finalproject.retrofit
 
 import android.app.Application
 import com.example.mikailovproject.shared.finalproject.core.utils.Utils.BASE_URL

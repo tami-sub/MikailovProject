@@ -2,7 +2,7 @@ package com.example.mikailovproject.di
 
 import com.example.mikailovproject.di.activity.ActivityModule
 import com.example.mikailovproject.di.fragment.FragmentModule
-import com.example.mikailovproject.network.retrofit.NetworkModule
+import com.example.mikailovproject.network.finalproject.retrofit.NetworkModule
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule

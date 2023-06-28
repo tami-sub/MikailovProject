@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.mikailovproject.component.navigation.screen.navigate
+import com.example.mikailovproject.component.finalproject.navigation.screen.navigate
 import com.example.mikailovproject.feature.finalproject.history_fragment.R
 import com.example.mikailovproject.feature.finalproject.history_fragment.databinding.FragmentHistoryBinding
 import com.example.mikailovproject.feature.finalproject.history_fragment.presentation.HistoryState
@@ -14,14 +14,13 @@ import com.example.mikailovproject.shared.finalproject.core.presentation.ViewMod
 import com.example.mikailovproject.shared.finalproject.core.ui.BaseFragment
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
-import com.example.mikailovproject.component.navigation.R as NavR
+import com.example.mikailovproject.component.finalproject.navigation.R as NavR
 
 class HistoryFragment : BaseFragment<FragmentHistoryBinding>(FragmentHistoryBinding::inflate) {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
     private lateinit var viewModel: HistoryViewModel
-    private var isRefreshing = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

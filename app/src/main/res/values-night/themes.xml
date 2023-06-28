@@ -19,4 +19,9 @@
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:minHeight">48dp</item>
     </style>
+
+    <style name="TextInputLayout">
+        <item name="boxStrokeColor">@color/yellow_500</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
 </resources>

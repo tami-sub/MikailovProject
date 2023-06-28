@@ -1,4 +1,4 @@
-package com.example.mikailovproject.network.retrofit
+package com.example.mikailovproject.network.finalproject.retrofit
 
 sealed class DomainException(message: String) : RuntimeException(message) {
     class BadRequestException(message: String) : DomainException(message)

@@ -43,8 +43,8 @@ dependencies {
     implementation implementation(project(':feature:finalproject:loan_fragment'))
     implementation implementation(project(':feature:finalproject:history_fragment'))
     implementation implementation(project(':feature:finalproject:detailed_loan_fragment'))
-    implementation(project(":component:navigation"))
-    implementation(project(":network:retrofit"))
+    implementation(project(":component:finalproject:navigation"))
+    implementation(project(":network:finalproject:retrofit"))
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'

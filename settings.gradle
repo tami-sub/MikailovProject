@@ -14,11 +14,11 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MikailovProject"
 include ':app'
-include ':component:navigation'
+include ':component:finalproject:navigation'
 include ':shared:finalproject:core'
 include ':feature:finalproject:registration_fragment'
 include ':feature:finalproject:login_fragment'
 include ':feature:finalproject:loan_fragment'
 include ':feature:finalproject:history_fragment'
 include ':feature:finalproject:detailed_loan_fragment'
-include ':network:retrofit'
+include ':network:finalproject:retrofit'

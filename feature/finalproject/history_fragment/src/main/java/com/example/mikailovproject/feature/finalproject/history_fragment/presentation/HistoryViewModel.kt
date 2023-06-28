@@ -13,17 +13,12 @@ import javax.inject.Inject
 class HistoryViewModel @Inject constructor(
     private val getAllLoansUseCase: GetAllLoansUseCase
 ) : ViewModel() {
-    private var token: String = ""
 
     private val _state: MutableLiveData<HistoryState> = MutableLiveData<HistoryState>()
     val state: LiveData<HistoryState> = _state
 
     init {
         getAllLoans()
-    }
-
-    fun clear() {
-        _state.value = HistoryState.Clear
     }
 
     fun getAllLoans() {
@@ -40,11 +35,5 @@ class HistoryViewModel @Inject constructor(
                 }
             }
         }
-
-//        viewModelScope.launch(exceptionHandler) {
-////            withContext(Dispatchers.IO) {
-////                _state.value = HistoryState.Success(getAllLoansUseCase.invoke())
-////            }
-//        }
     }
 }

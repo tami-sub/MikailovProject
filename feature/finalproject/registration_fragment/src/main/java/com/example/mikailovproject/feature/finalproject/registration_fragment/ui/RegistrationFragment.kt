@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
-import com.example.mikailovproject.component.navigation.screen.navigate
+import com.example.mikailovproject.component.finalproject.navigation.screen.navigate
 import com.example.mikailovproject.feature.finalproject.registration_fragment.R
 import com.example.mikailovproject.feature.finalproject.registration_fragment.databinding.FragmentRegistrationBinding
 import com.example.mikailovproject.feature.finalproject.registration_fragment.presentation.RegistrationState
@@ -13,7 +13,7 @@ import com.example.mikailovproject.shared.finalproject.core.presentation.ViewMod
 import com.example.mikailovproject.shared.finalproject.core.ui.BaseFragment
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
-import com.example.mikailovproject.component.navigation.R as NavR
+import com.example.mikailovproject.component.finalproject.navigation.R as NavR
 
 class RegistrationFragment :
     BaseFragment<FragmentRegistrationBinding>(FragmentRegistrationBinding::inflate) {

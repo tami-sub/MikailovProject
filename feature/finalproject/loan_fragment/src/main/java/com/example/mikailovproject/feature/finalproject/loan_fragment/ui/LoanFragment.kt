@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
-import com.example.mikailovproject.component.navigation.screen.navigate
+import com.example.mikailovproject.component.finalproject.navigation.screen.navigate
 import com.example.mikailovproject.feature.finalproject.loan_fragment.R
 import com.example.mikailovproject.feature.finalproject.loan_fragment.databinding.FragmentLoanBinding
 import com.example.mikailovproject.feature.finalproject.loan_fragment.presentation.LoanState
@@ -14,7 +14,7 @@ import com.example.mikailovproject.shared.finalproject.core.ui.BaseFragment
 import com.example.mikailovproject.shared.finalproject.core.utils.Utils.convertDateTimeToReadableFormat
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
-import com.example.mikailovproject.component.navigation.R as NavR
+import com.example.mikailovproject.component.finalproject.navigation.R as NavR
 
 class LoanFragment : BaseFragment<FragmentLoanBinding>(FragmentLoanBinding::inflate) {
 
@@ -47,7 +47,7 @@ class LoanFragment : BaseFragment<FragmentLoanBinding>(FragmentLoanBinding::infl
                 NavR.id.history -> {
                     navigate(
                         R.id.action_loanFragment_to_historyFragment,
-                        com.example.mikailovproject.component.navigation.R.id.globalHost,
+                        com.example.mikailovproject.component.finalproject.navigation.R.id.globalHost,
                     )
                     true
                 }

@@ -1,9 +1,12 @@
 package com.example.mikailovproject.feature.finalproject.registration_fragment.presentation
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mikailovproject.feature.finalproject.registration_fragment.R
+import com.example.mikailovproject.network.finalproject.retrofit.DomainException
 import com.example.mikailovproject.shared.finalproject.core.data.sharedpreferences.AuthTokenManager
 import com.example.mikailovproject.shared.finalproject.core.domain.usecase.PostRegistrationAuthUseCase
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -16,7 +19,8 @@ import javax.inject.Inject
 
 class RegistrationViewModel @Inject constructor(
     private val registrationAuthUseCase: PostRegistrationAuthUseCase,
-    private val authTokenManager: AuthTokenManager
+    private val authTokenManager: AuthTokenManager,
+    private val application: Application
 ) : ViewModel() {
 
     private val _state: MutableLiveData<RegistrationState> = MutableLiveData<RegistrationState>()
@@ -48,7 +52,13 @@ class RegistrationViewModel @Inject constructor(
                     }
                 }.onFailure { throwable ->
                     withContext(Dispatchers.Main) {
-                        _state.value = RegistrationState.Error(throwable)
+                        val customException =
+                            if (throwable is DomainException.BadRequestException) Exception(
+                                application.applicationContext.getString(
+                                    R.string.username_already_exists
+                                )
+                            ) else throwable
+                        _state.value = RegistrationState.Error(customException)
                     }
                 }
             }

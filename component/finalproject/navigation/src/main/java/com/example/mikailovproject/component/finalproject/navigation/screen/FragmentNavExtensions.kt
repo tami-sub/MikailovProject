@@ -1,4 +1,4 @@
-package com.example.mikailovproject.component.navigation.screen
+package com.example.mikailovproject.component.finalproject.navigation.screen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

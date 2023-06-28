@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
-import com.example.mikailovproject.component.navigation.screen.navigate
+import com.example.mikailovproject.component.finalproject.navigation.screen.navigate
 import com.example.mikailovproject.feature.finalproject.login_fragment.R
 import com.example.mikailovproject.feature.finalproject.login_fragment.databinding.FragmentLoginBinding
 import com.example.mikailovproject.feature.finalproject.login_fragment.presentation.LoginState
@@ -49,7 +49,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                 dismissErrorSnackBar()
                 navigate(
                     R.id.action_loginFragment_to_registrationFragment,
-                    com.example.mikailovproject.component.navigation.R.id.globalHost,
+                    com.example.mikailovproject.component.finalproject.navigation.R.id.globalHost,
                 )
             }
         }
@@ -75,7 +75,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                 progressBar.visibility = View.GONE
                 navigate(
                     R.id.action_loginFragment_to_loanFragment,
-                    com.example.mikailovproject.component.navigation.R.id.globalHost,
+                    com.example.mikailovproject.component.finalproject.navigation.R.id.globalHost,
                 )
                 showBottomNavigation()
                 viewModel.clear()
