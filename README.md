@@ -34,4 +34,14 @@
 - Дизайн, соответствующий гайдлайнам Material Design 2
 
 1.3 Использованные технологии и библитеки:
-Kotlin Coroutines, MVVM, Livedata, Retrofit 2, OkHttp 3, Navigation Component, Dagger-android, Room, Swiperefreshlayout, Junit, Espresso
+- Kotlin Coroutines,
+- MVVM + UDF,
+- Livedata,
+- Retrofit 2,
+- OkHttp 3,
+- Navigation Component,
+- Dagger-android,
+- Room,
+- Swiperefreshlayout,
+- Junit,
+- Espresso
