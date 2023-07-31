@@ -41,6 +41,7 @@
 - Retrofit 2
 - OkHttp 3
 - Navigation Component
+- Dagger 2
 - Dagger-android
 - Room
 - Swiperefreshlayout
